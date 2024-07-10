@@ -7,11 +7,37 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function Form() {
-  const [emailInput, setEmailInput] = useState("");
-  const [passwordInput, setPasswordInput] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const [passwordStyle, setPasswordStyle] = useState("");
+  const [emailStyle, setEmailStyle] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    let re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!email.length) setEmailError("Can't be empty");
+    else if (!re.test(email)) {
+      setEmailError("Please enter a valid email");
+    }
+    if (!password.length) setPasswordError("Can't be empty");
+    // else if ()
+  };
 
   return (
-    <form className="flex flex-col center-content form justify-center">
+    <form
+      noValidate
+      onSubmit={(e) => handleSubmit(e)}
+      className="flex flex-col center-content form justify-center"
+      onClick={() => {
+        setPasswordError("");
+        setEmailError("");
+      }}
+    >
       <div className="title-container">
         <img src="/assets/images/logo-devlinks-large.svg" alt="logo" />
       </div>
@@ -22,10 +48,16 @@ export default function Form() {
         </p>
         <div>
           <div className="mb-2 block">
-            <Label className="body-s" htmlFor="email" value="Email address" />
+            <Label
+              className={`body-s ${!!emailError && "error"}`}
+              htmlFor="email"
+              value="Email address"
+            />
           </div>
           <div
-            className={`${emailInput} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
+            className={`${
+              !!emailError && "error"
+            } ${emailStyle} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
           >
             <Image
               src={"/assets/images/icon-email.svg"}
@@ -39,17 +71,27 @@ export default function Form() {
               type="email"
               placeholder="e.g. alex@email.com"
               required
-              onFocus={() => setEmailInput("focus-border")}
-              onBlur={() => setEmailInput("")}
+              onFocus={() => setEmailStyle("focus-border")}
+              onBlur={() => setEmailStyle("")}
+              color="failure"
+              helperText={<>{emailError}</>}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         </div>
         <div>
           <div className="mb-2 block">
-            <Label className="body-s" htmlFor="password" value="Password" />
+            <Label
+              className={`body-s ${!!passwordError && "error"}`}
+              htmlFor="password"
+              value="Password"
+            />
           </div>
           <div
-            className={`${passwordInput} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
+            className={`${
+              !!passwordError && "error"
+            } ${passwordStyle} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
           >
             <Image
               src={"/assets/images/icon-password.svg"}
@@ -63,8 +105,12 @@ export default function Form() {
               type="password"
               placeholder="Enter your password"
               required
-              onFocus={() => setPasswordInput("focus-border")}
-              onBlur={() => setPasswordInput("")}
+              onFocus={() => setPasswordStyle("focus-border")}
+              onBlur={() => setPasswordStyle("")}
+              value={password}
+              onChange={(e) => setEmail(e.target.value)}
+              color={"failure"}
+              helperText={<>{passwordError}</>}
             />
           </div>
         </div>
