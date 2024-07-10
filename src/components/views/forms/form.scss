@@ -60,6 +60,7 @@
     background: white;
     padding: 16px 12px;
     padding-left: 0.625rem;
+    color: $dark-grey;
     @extend .body-m;
     &::placeholder {
       color: $dark-grey;

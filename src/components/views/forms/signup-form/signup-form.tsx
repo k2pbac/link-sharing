@@ -80,11 +80,15 @@ export default function SignUpForm() {
           onChange={setRePassword}
         />
 
+        <p className="body-s tip">
+          Password must contain at least 8 characters
+        </p>
+
         <Button className="mt-3" type="submit">
           Submit
         </Button>
         <p className="text-center body-m pt-3">
-          Already have an account? <Link href="/login">Login</Link>g
+          Already have an account? <Link href="/login">Login</Link>
         </p>
       </div>
     </form>

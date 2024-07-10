@@ -1,3 +1,9 @@
 .signup-page {
   background-color: $light-white;
+
+  .form {
+    .tip {
+      color: $grey;
+    }
+  }
 }
