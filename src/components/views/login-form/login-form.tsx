@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import axios from "axios";
+import Input from "@/components/partials/input/input";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -15,9 +16,6 @@ export default function LoginForm() {
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
-  const [passwordStyle, setPasswordStyle] = useState("");
-  const [emailStyle, setEmailStyle] = useState("");
 
   const router = useRouter();
   const [loading, setLoading] = React.useState(false);
@@ -65,74 +63,27 @@ export default function LoginForm() {
         <p className="body-m">
           Add your details below to get back into the app
         </p>
-        <div>
-          <div className="mb-2 block">
-            <Label
-              className={`body-s ${!!emailError && "error"}`}
-              htmlFor="email"
-              value="Email address"
-            />
-          </div>
-          <div
-            className={`${
-              !!emailError && "error"
-            } ${emailStyle} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
-          >
-            <Image
-              src={"/assets/images/icon-email.svg"}
-              alt=""
-              width={16}
-              height={16}
-            />
-            <TextInput
-              className="w-full"
-              id="email"
-              type="email"
-              placeholder="e.g. alex@email.com"
-              required
-              onFocus={() => setEmailStyle("focus-border")}
-              onBlur={() => setEmailStyle("")}
-              color="failure"
-              helperText={<>{emailError}</>}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-        <div>
-          <div className="mb-2 block">
-            <Label
-              className={`body-s ${!!passwordError && "error"}`}
-              htmlFor="password"
-              value="Password"
-            />
-          </div>
-          <div
-            className={`${
-              !!passwordError && "error"
-            } ${passwordStyle} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
-          >
-            <Image
-              src={"/assets/images/icon-password.svg"}
-              alt=""
-              width={16}
-              height={16}
-            />
-            <TextInput
-              className="w-full"
-              id="password"
-              type="password"
-              placeholder="Enter your password"
-              required
-              onFocus={() => setPasswordStyle("focus-border")}
-              onBlur={() => setPasswordStyle("")}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              color={"failure"}
-              helperText={<>{passwordError}</>}
-            />
-          </div>
-        </div>
+        <Input
+          error={emailError}
+          imageURL={"/assets/images/icon-email.svg"}
+          htmlFor={"email"}
+          label={"Email address"}
+          type={"email"}
+          placeholder={"e.g. alex@email.com"}
+          value={email}
+          onChange={setEmail}
+        />
+        <Input
+          error={passwordError}
+          imageURL={"/assets/images/icon-password.svg"}
+          htmlFor={"password"}
+          label={"Password"}
+          type={"password"}
+          placeholder={"Enter your password"}
+          value={password}
+          onChange={setPassword}
+        />
+
         <Button className="mt-3" type="submit">
           Submit
         </Button>
