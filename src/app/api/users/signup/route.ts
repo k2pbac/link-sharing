@@ -1,7 +1,7 @@
 // app/api/users/signup/route.ts
 
 import { connect } from "@/dbConfig/dbConfig";
-import User from "@/models/usermodel";
+import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 

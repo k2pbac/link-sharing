@@ -27,7 +27,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "lib/mongodb.js",
-    "src/models/usermodel.js"
+    "src/models/userModel.js"
   ],
   "exclude": ["node_modules"]
 }
