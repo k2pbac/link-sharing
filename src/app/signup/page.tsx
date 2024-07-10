@@ -4,45 +4,12 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import SignUpForm from "@/components/views/signup-form/signup-form";
 
 export default function SignupPage() {
-  const router = useRouter();
-  const [user, setUser] = React.useState({
-    email: "",
-    password: "",
-    username: "",
-  });
-
-  const onSignup = async () => {
-    try {
-      const response = await axios.post("/api/users/signup", user);
-      router.push("/login");
-    } catch (error: any) {
-      console.log("Signup failed", error.message);
-    }
-  };
-
   return (
-    <div>
-      <label htmlFor="email">email</label>
-      <input
-        id="email"
-        type="text"
-        value={user.email}
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
-      />
-      <label htmlFor="password">password</label>
-      <input
-        id="password"
-        type="password"
-        value={user.password}
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-        placeholder="password"
-      />
-      <button onClick={onSignup}>Sign Up</button>
-
-      <Link href="/login">Visit login page</Link>
-    </div>
+    <main className="min-w-screen min-h-screen center-content signup-page">
+      <SignUpForm />
+    </main>
   );
 }
