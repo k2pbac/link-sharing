@@ -5,8 +5,11 @@ import { Button, Label, TextInput } from "flowbite-react";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
+import axios from "axios";
 
-export default function Form() {
+export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +19,10 @@ export default function Form() {
   const [passwordStyle, setPasswordStyle] = useState("");
   const [emailStyle, setEmailStyle] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     let re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -25,7 +31,20 @@ export default function Form() {
       setEmailError("Please enter a valid email");
     }
     if (!password.length) setPasswordError("Can't be empty");
-    // else if ()
+    else {
+      try {
+        setLoading(true);
+        const response = await axios.post("/api/users/login", {
+          email,
+          password,
+        });
+        router.push("/");
+      } catch (error: any) {
+        console.log("Login failed", error.message);
+      } finally {
+        setLoading(false);
+      }
+    }
   };
 
   return (
@@ -108,7 +127,7 @@ export default function Form() {
               onFocus={() => setPasswordStyle("focus-border")}
               onBlur={() => setPasswordStyle("")}
               value={password}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               color={"failure"}
               helperText={<>{passwordError}</>}
             />
