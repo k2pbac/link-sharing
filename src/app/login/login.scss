@@ -1,12 +1,20 @@
 .login-page {
   background-color: $light-white;
   .form {
-    padding: 40px;
-    background-color: $white;
     width: 470px;
     height: fit-content;
-    border-radius: 12px;
-
+    .title-container {
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: $light-white;
+    }
+    .content-container {
+      padding: 40px;
+      background-color: $white;
+      border-radius: 12px;
+    }
     h2 {
       color: $dark-grey;
     }
