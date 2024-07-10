@@ -84,7 +84,7 @@ export default function SignUpForm() {
           Submit
         </Button>
         <p className="text-center body-m pt-3">
-          Already have an account? <Link href="/login">Login</Link>
+          Already have an account? <Link href="/login">Login</Link>g
         </p>
       </div>
     </form>
