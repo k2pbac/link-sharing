@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import LoginForm from "../../components/views/login-form/login-form";
+import React from "react";
+import LoginForm from "../../components/views/forms/login-form/login-form";
 
 export default function Login() {
   return (
