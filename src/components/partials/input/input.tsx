@@ -30,13 +30,7 @@ export default function Input(props: Props) {
           !!props.error && "error"
         } ${className} input-group-custom flex w-full border disabled:cursor-not-allowed disabled:opacity-50`}
       >
-        <Image
-          // src={"/assets/images/icon-email.svg"}
-          src={props.imageURL}
-          alt=""
-          width={16}
-          height={16}
-        />
+        <Image src={props.imageURL} alt="" width={16} height={16} />
         <TextInput
           className="w-full"
           id={props.label}

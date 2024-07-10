@@ -1,12 +1,11 @@
 "use client";
 
-import { Button, Label, TextInput } from "flowbite-react";
+import { Button } from "flowbite-react";
 
-import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import Input from "@/components/partials/input/input";
 
