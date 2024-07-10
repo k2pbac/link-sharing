@@ -24,6 +24,30 @@ export default function SignUpForm() {
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
+    let re =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!password.length) {
+      setPasswordError("Can't be empty");
+      return;
+    }
+    if (!rePassword.length) {
+      setRePasswordError("Can't be empty");
+      return;
+    }
+    if (!emailError.length) {
+      setEmailError("Can't be empty");
+      return;
+    } else if (!re.test(email)) {
+      setEmailError("Please enter a valid email");
+      return;
+    }
+
+    if (password.length !== rePassword.length || password !== rePassword) {
+      setPasswordError("Password doesn't match");
+      setRePasswordError("Password doesn't match");
+      return;
+    }
+
     try {
       const response = await axios.post("/api/users/signup", user);
       router.push("/login");
@@ -40,6 +64,7 @@ export default function SignUpForm() {
       onClick={() => {
         setPasswordError("");
         setEmailError("");
+        setRePasswordError("");
       }}
     >
       <div className="title-container">
