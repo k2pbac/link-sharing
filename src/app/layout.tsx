@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
-
+import "./main.scss";
 const instr = Instrument_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Link sharing app",
+  title: "devlinks",
   description: "Add and share your socials with other people",
 };
 
@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={instr.className}>{children}</body>
+      <body className={instr.className + "min-h-screen min-w-screen"}>
+        {children}
+      </body>
     </html>
   );
 }

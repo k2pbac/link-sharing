@@ -1,7 +1,9 @@
+import Form from "../../components/flow-views/form/form";
+
 export default function Login() {
   return (
-    <div>
-      <p>Login</p>
-    </div>
+    <main className="min-w-screen min-h-screen center-content login-page">
+      <Form />
+    </main>
   );
 }
