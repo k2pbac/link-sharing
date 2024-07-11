@@ -17,43 +17,43 @@ export default function SignUpForm() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [rePasswordError, setRePasswordError] = useState("");
-  const [user, setUser] = React.useState({
-    email: "",
-    password: "",
-    username: "",
-  });
 
   const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    let trySignUp = true;
     let re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!password.length) {
       setPasswordError("Can't be empty");
-      return;
+      trySignUp = false;
     }
     if (!rePassword.length) {
       setRePasswordError("Can't be empty");
-      return;
+      trySignUp = false;
     }
-    if (!emailError.length) {
+    if (!email.length) {
       setEmailError("Can't be empty");
-      return;
+      trySignUp = false;
     } else if (!re.test(email)) {
       setEmailError("Please enter a valid email");
-      return;
+      trySignUp = false;
     }
-
     if (password.length !== rePassword.length || password !== rePassword) {
       setPasswordError("Password doesn't match");
       setRePasswordError("Password doesn't match");
-      return;
+      trySignUp = false;
     }
 
-    try {
-      const response = await axios.post("/api/users/signup", user);
-      router.push("/login");
-    } catch (error: any) {
-      console.log("Signup failed", error.message);
-    }
+    if (!!trySignUp)
+      try {
+        const response = await axios.post("/api/users/signup", {
+          email,
+          password,
+        });
+        router.push("/login");
+      } catch (error: any) {
+        console.log("Signup failed", error.message);
+      }
   };
 
   return (

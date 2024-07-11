@@ -14,7 +14,6 @@ interface Props {
 }
 
 export default function Input(props: Props) {
-  const [value, setValue] = useState("");
   const [className, setClassName] = useState("");
   return (
     <div className="input-component">
@@ -41,8 +40,8 @@ export default function Input(props: Props) {
           onBlur={() => setClassName("")}
           color="failure"
           helperText={<>{props.error}</>}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={props.value}
+          onChange={(e) => props.onChange(e.target.value)}
         />
       </div>
     </div>
