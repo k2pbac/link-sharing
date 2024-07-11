@@ -10,6 +10,7 @@ import axios from "axios";
 import Input from "@/components/partials/input/input";
 
 export default function LoginForm() {
+  const [error, setError] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -38,6 +39,7 @@ export default function LoginForm() {
         router.push("/");
       } catch (error: any) {
         console.log("Login failed", error.message);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -62,6 +64,7 @@ export default function LoginForm() {
         <p className="body-m">
           Add your details below to get back into the app
         </p>
+        {!!error ? <p>{error}</p> : null}
         <Input
           error={emailError}
           imageURL={"/assets/images/icon-email.svg"}
