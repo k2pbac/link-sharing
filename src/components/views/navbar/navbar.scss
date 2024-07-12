@@ -26,4 +26,13 @@
       color: $grey;
     }
   }
+  .preview-button {
+    border: 1px solid $dark-purple;
+    background-color: transparent;
+    color: $dark-purple;
+
+    &:hover {
+      background-color: $light-purple;
+    }
+  }
 }
