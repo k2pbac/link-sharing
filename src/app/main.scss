@@ -16,7 +16,8 @@ $red: #ff3939;
 
 $dark-purple-filter: brightness(0) saturate(100%) invert(23%) sepia(98%)
   saturate(3745%) hue-rotate(247deg) brightness(99%) contrast(104%);
-
+$white-filter: brightness(0) saturate(100%) invert(99%) sepia(58%) saturate(0%)
+  hue-rotate(186deg) brightness(111%) contrast(101%);
 // Fonts
 
 .heading-m,
