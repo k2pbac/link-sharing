@@ -33,7 +33,7 @@ export default function CustomNav() {
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white"></span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Button className="preview-button">Preview</Button>
+        <Button className="preview-button heading-s">Preview</Button>
         <Navbar.Toggle />
       </div>
       <Navbar.Toggle />
