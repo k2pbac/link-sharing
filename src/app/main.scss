@@ -63,6 +63,7 @@ $white-filter: brightness(0) saturate(100%) invert(99%) sepia(58%) saturate(0%)
 @import "../components/views/navbar/navbar.scss";
 @import "../components/views/forms/form.scss";
 @import "../components/views/preview/preview.scss";
+@import "../components/views/customize-links/customize-links.scss";
 @import "./homepage.scss";
 @import "./login/login.scss";
 @import "./signup/signup.scss";
