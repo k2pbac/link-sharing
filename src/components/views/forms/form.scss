@@ -79,7 +79,7 @@
   button {
     background-color: $dark-purple;
     &:hover {
-      background-color: $purple;
+      background-color: $purple !important;
     }
   }
 }
