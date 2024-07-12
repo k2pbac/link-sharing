@@ -24,6 +24,12 @@
     }
     &:not(&.active) {
       color: $grey;
+      &:hover {
+        color: $dark-purple;
+        img {
+          filter: $dark-purple-filter;
+        }
+      }
     }
   }
   .preview-button {
