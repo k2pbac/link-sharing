@@ -1,7 +1,11 @@
 .navbar {
-  margin: 24px;
-  background-color: white;
-  border-radius: 12px;
+  padding: 12px;
+  background-color: $light-white;
+  & > :first-child {
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+  }
   a.option {
     border-radius: 8px;
     padding: 11px 27px;
