@@ -61,5 +61,6 @@ $dark-purple-filter: brightness(0) saturate(100%) invert(23%) sepia(98%)
 
 @import "../components/views/navbar/navbar.scss";
 @import "../components/views/forms/form.scss";
+@import "./homepage.scss";
 @import "./login/login.scss";
 @import "./signup/signup.scss";
