@@ -1,0 +1,44 @@
+.navbar {
+  padding: 12px;
+  background-color: $light-white;
+  & > :first-child {
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+  }
+  a.option {
+    border-radius: 8px;
+    padding: 11px 27px;
+    display: flex;
+    gap: 8px;
+    font-weight: 600;
+    width: auto;
+    white-space: nowrap;
+    align-items: center;
+    &.active {
+      background-color: $light-purple;
+      color: $dark-purple;
+      img {
+        filter: $dark-purple-filter;
+      }
+    }
+    &:not(&.active) {
+      color: $grey;
+      &:hover {
+        color: $dark-purple;
+        img {
+          filter: $dark-purple-filter;
+        }
+      }
+    }
+  }
+  .preview-button {
+    border: 1px solid $dark-purple;
+    background-color: transparent;
+    color: $dark-purple;
+
+    &:hover {
+      background-color: $light-purple;
+    }
+  }
+}

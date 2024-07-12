@@ -12,6 +12,11 @@ $light-white: #fafafa;
 $white: #ffffff;
 $red: #ff3939;
 
+// filters for svg
+
+$dark-purple-filter: brightness(0) saturate(100%) invert(23%) sepia(98%)
+  saturate(3745%) hue-rotate(247deg) brightness(99%) contrast(104%);
+
 // Fonts
 
 .heading-m,
@@ -54,6 +59,8 @@ $red: #ff3939;
   overflow: auto;
 }
 
+@import "../components/views/navbar/navbar.scss";
 @import "../components/views/forms/form.scss";
+@import "./homepage.scss";
 @import "./login/login.scss";
 @import "./signup/signup.scss";
