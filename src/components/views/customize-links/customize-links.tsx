@@ -2,9 +2,10 @@
 
 import { Button } from "flowbite-react";
 import { useState } from "react";
+import CustomLinkInput from "./custom-link-input";
 
 export default function CustomizeLinks() {
-  const [linksCount, setLinksCount] = useState(0);
+  const [linksCount, setLinksCount] = useState(1);
 
   return (
     <div className="customize-container">
@@ -17,17 +18,26 @@ export default function CustomizeLinks() {
       </div>
       <div className="add-links">
         <Button className="add-link-button w-full">+ Add new link</Button>
-        <div className="image-container">
-          <img src="/assets/images/illustration-empty.svg" alt="empty-links" />
-          <div className="text-center">
-            <h3 className="heading-m">Let's get you started</h3>
-            <p className="body-m">
-              Use the “Add new link” button to get started. Once you have more
-              than one link, you can reorder and edit them. We’re here to help
-              you share your profiles with everyone!
-            </p>
+        {linksCount == 0 ? (
+          <div className="image-container">
+            <>
+              <img
+                src="/assets/images/illustration-empty.svg"
+                alt="empty-links"
+              />
+              <div className="text-center">
+                <h3 className="heading-m">Let's get you started</h3>
+                <p className="body-m">
+                  Use the “Add new link” button to get started. Once you have
+                  more than one link, you can reorder and edit them. We’re here
+                  to help you share your profiles with everyone!
+                </p>
+              </div>
+            </>
           </div>
-        </div>
+        ) : (
+          <CustomLinkInput index={1} />
+        )}
       </div>
       <div className="button-container">
         <Button
