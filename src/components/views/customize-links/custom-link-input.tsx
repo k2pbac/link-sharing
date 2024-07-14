@@ -48,7 +48,7 @@ export default function CustomLinkInput(props: Props) {
 
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="platform" value="Platform" />
+          <Label className="body-s" htmlFor="platform" value="Platform" />
         </div>
         <Dropdown label={getLabel()} dismissOnClick={true}>
           {linkTypes.map((linkItem, index) => {
@@ -68,9 +68,15 @@ export default function CustomLinkInput(props: Props) {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="password1" value="Your password" />
+          <Label className="body-s" htmlFor="link" value="Link" />
         </div>
-        <TextInput id="password1" type="password" required />
+        <div className="copy-icon">
+          <img
+            src="/assets/images/icon-link-copied-to-clipboard.svg"
+            alt="copy icon"
+          />
+          <TextInput id="link" type="text" required />
+        </div>
       </div>
     </div>
   );

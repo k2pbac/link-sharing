@@ -36,18 +36,13 @@
   }
 
   /// This is the main dropdown button!!
-  button[data-testid~="flowbite-dropdown-target"] {
+  button[data-testid~="flowbite-dropdown-target"],
+  input[type~="password"] {
     width: 100%;
     background-color: $white;
     border: 1px solid $light-grey;
     & > span {
       width: 100%;
-    }
-    &:hover {
-      -webkit-box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
-      -moz-box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
-      box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
-      background-color: $white !important;
     }
     svg {
       float: right;
@@ -72,6 +67,37 @@
       img {
         filter: $grey-filter;
       }
+    }
+  }
+  button[data-testid~="flowbite-dropdown-target"] {
+    &:hover {
+      -webkit-box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+      -moz-box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+      box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+      background-color: $white !important;
+    }
+  }
+  input[type~="password"] {
+    &:focus {
+      -webkit-box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+      -moz-box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+      box-shadow: 0px 0px 32px 0px rgba(99, 60, 255, 0.25);
+      background-color: $white !important;
+    }
+  }
+  .copy-icon {
+    position: relative;
+
+    img {
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      left: 12px;
+      top: 12px;
+    }
+    input {
+      padding-left: 44px;
+      @extend .body-m;
     }
   }
 }
