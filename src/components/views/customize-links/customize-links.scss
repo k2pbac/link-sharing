@@ -18,6 +18,9 @@
 
   .add-links {
     flex: 1;
+    min-height: 511px;
+    max-height: 511px;
+    overflow: auto;
     .image-container {
       display: flex;
       flex-direction: column;

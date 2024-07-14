@@ -5,8 +5,11 @@ import { useState } from "react";
 import CustomLinkInput from "./custom-link-input";
 
 export default function CustomizeLinks() {
-  const [linksCount, setLinksCount] = useState(1);
+  const [linksCount, setLinksCount] = useState(0);
 
+  const handleAddNewLink = () => {
+    setLinksCount((prev) => prev + 1);
+  };
   return (
     <div className="customize-container">
       <div className="header">
@@ -17,7 +20,9 @@ export default function CustomizeLinks() {
         </p>
       </div>
       <div className="add-links">
-        <Button className="add-link-button w-full">+ Add new link</Button>
+        <Button onClick={handleAddNewLink} className="add-link-button w-full">
+          + Add new link
+        </Button>
         {linksCount == 0 ? (
           <div className="image-container">
             <>
@@ -36,7 +41,9 @@ export default function CustomizeLinks() {
             </>
           </div>
         ) : (
-          <CustomLinkInput index={0} />
+          Array.from({ length: linksCount }, (_, key) => {
+            return <CustomLinkInput key={key} index={key} />;
+          })
         )}
       </div>
       <div className="button-container">

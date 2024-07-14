@@ -42,6 +42,11 @@ export default function CustomLinkInput(props: Props) {
   return (
     <div className="new-link-container">
       <p className="heading-s">
+        <img
+          className="pr-1 inline"
+          src="/assets/images/icon-drag-and-drop.svg"
+          alt="icon"
+        />{" "}
         Link #{props.index + 1}{" "}
         <span className="body-m remove-button">Remove</span>
       </p>
