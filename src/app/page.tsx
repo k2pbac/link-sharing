@@ -1,3 +1,4 @@
+import CustomizeLinks from "@/components/views/customize-links/customize-links";
 import CustomNav from "@/components/views/navbar/navbar";
 import Preview from "@/components/views/preview/preview";
 import Image from "next/image";
@@ -8,7 +9,7 @@ export default function Home() {
       <CustomNav />
       <div className="content">
         <Preview />
-        <div></div>
+        <CustomizeLinks />
       </div>
     </main>
   );

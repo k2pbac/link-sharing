@@ -1,3 +1,10 @@
 .homepage {
   background-color: $light-white;
+
+  .content {
+    display: flex;
+    gap: 24px;
+    padding: 12px 12px;
+    padding-bottom: 24px;
+  }
 }
