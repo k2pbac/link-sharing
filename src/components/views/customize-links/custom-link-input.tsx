@@ -1,4 +1,7 @@
+"use client";
+
 import { Label, TextInput, Dropdown } from "flowbite-react";
+import { useState } from "react";
 
 interface Props {
   index: number;
@@ -22,19 +25,38 @@ const linkTypes = [
 ];
 
 export default function CustomLinkInput(props: Props) {
+  const [link, setLink] = useState(linkTypes[props.index]);
+  const getLabel = () => {
+    return (
+      <p className="input-icon body-m">
+        <img src={link.icon} alt="link-icon" /> {link.item}
+      </p>
+    );
+  };
+
   return (
     <div className="custom-link-input">
       <p className="heading-s">
-        Link {props.index} <span className="body-m">Remove</span>
+        Link #{props.index + 1} <span className="body-m">Remove</span>
       </p>
 
       <div>
         <div className="mb-2 block">
           <Label htmlFor="platform" value="Platform" />
         </div>
-        <Dropdown label="Dropdown button" dismissOnClick={false}>
-          {linkTypes.map((link, index) => {
-            return <Dropdown.Item key={index}>{link["item"]}</Dropdown.Item>;
+        <Dropdown label={getLabel()} dismissOnClick={true}>
+          {linkTypes.map((linkItem, index) => {
+            return (
+              <Dropdown.Item
+                onClick={() => setLink(linkTypes[index])}
+                key={index}
+                className={link.item === linkTypes[index].item ? "active" : ""}
+              >
+                <p className="input-icon body-m">
+                  <img src={linkItem.icon} alt="link-icon" /> {linkItem.item}
+                </p>
+              </Dropdown.Item>
+            );
           })}
         </Dropdown>
       </div>

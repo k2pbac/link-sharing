@@ -36,7 +36,7 @@ export default function CustomizeLinks() {
             </>
           </div>
         ) : (
-          <CustomLinkInput index={1} />
+          <CustomLinkInput index={0} />
         )}
       </div>
       <div className="button-container">
