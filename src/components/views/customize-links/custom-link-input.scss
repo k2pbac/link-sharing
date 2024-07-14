@@ -1,15 +1,17 @@
-.custom-link-input {
+.new-link-container {
   padding: 20px;
   background-color: $light-white;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  border-radius: 12px;
   p {
     margin-bottom: 0;
-    span {
+    span.remove-button {
       float: right;
     }
   }
+  /// This is the items within the dropdown
   ul {
     overflow: auto;
     height: 300px;
@@ -32,6 +34,8 @@
       }
     }
   }
+
+  /// This is the main dropdown button!!
   button[data-testid~="flowbite-dropdown-target"] {
     width: 100%;
     background-color: $white;
@@ -48,12 +52,23 @@
     svg {
       float: right;
       color: $dark-purple;
+      display: none;
     }
     .input-icon {
       display: flex;
       color: $dark-grey;
       flex: 1;
-      gap: 12px;
+      align-items: center;
+
+      .icon-group {
+        display: flex;
+        gap: 12px;
+        flex: 1;
+      }
+      .chevron {
+        filter: $dark-purple-filter;
+      }
+
       img {
         filter: $grey-filter;
       }

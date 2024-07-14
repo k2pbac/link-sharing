@@ -29,15 +29,21 @@ export default function CustomLinkInput(props: Props) {
   const getLabel = () => {
     return (
       <p className="input-icon body-m">
-        <img src={link.icon} alt="link-icon" /> {link.item}
+        <span className="icon-group">
+          <img src={link.icon} alt="link-icon" /> {link.item}
+        </span>
+        <span className="chevron">
+          <img src="/assets/images/icon-chevron-down.svg" alt="down icon" />
+        </span>
       </p>
     );
   };
 
   return (
-    <div className="custom-link-input">
+    <div className="new-link-container">
       <p className="heading-s">
-        Link #{props.index + 1} <span className="body-m">Remove</span>
+        Link #{props.index + 1}{" "}
+        <span className="body-m remove-button">Remove</span>
       </p>
 
       <div>
