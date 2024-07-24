@@ -11,10 +11,6 @@ const linkSchema = new mongoose.Schema({
     required: [true, "Can't be empty"],
     unique: true,
   },
-  user_id: {
-    type: Number,
-    required: [true],
-  },
 });
 
 const Link = mongoose.models.links || mongoose.model("links", linkSchema);

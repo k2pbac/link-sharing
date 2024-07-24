@@ -10,10 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a password"],
   },
-  links: {
-    type: Array,
-    required: [false],
-  },
+  links: [{ type: mongoose.Schema.Types.ObjectId, ref: "Link" }],
   // forgotPasswordToken: String,
   // forgotPasswordTokenExpiry: Date,
 });

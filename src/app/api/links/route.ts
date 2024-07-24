@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       const link = new Link({
         platform: links[i].platform,
         url: links[i].url,
-        user_id: id,
+        user_id: localStorage.getItem("id"),
       });
       await link.save();
     }
