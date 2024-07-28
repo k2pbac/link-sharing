@@ -38,15 +38,6 @@ export async function POST(request: NextRequest) {
       id: user._id,
       email: user.email,
     };
-    const alg = "HS256";
-    const secret = new TextEncoder().encode(process.env.TOKEN_SECRET);
-    const jwt = await new jose.SignJWT({ "urn:example:claim": true })
-      .setProtectedHeader({ alg })
-      .setIssuedAt()
-      .setIssuer("urn:example:issuer")
-      .setAudience("urn:example:audience")
-      .setExpirationTime("1d")
-      .sign(secret);
 
     // Create a JSON response indicating successful login
     const response = NextResponse.json({
@@ -55,7 +46,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Set the token as an HTTP-only cookie
-    response.cookies.set("token", jwt, {
+    response.cookies.set("token", tokenData.id, {
       httpOnly: true,
     });
 
