@@ -1,11 +1,9 @@
 import type { NextRequest } from "next/server";
 
-import { isAuthenticated } from "./lib/jwtTokenControl";
+import { isAuthenticated } from "./lib/tokenControl";
 
-// Limit the middleware to paths starting with `/api/`
-// matcher: ['/about/:path*', '/dashboard/:path*'],
+// Limit the middleware to paths starting with `/` or `/login`
 export const config = {
-  // matcher: '/api/v1/:function*'
   matcher: ["/", "/login"],
 };
 
