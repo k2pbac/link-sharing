@@ -5,7 +5,7 @@ import { useState } from "react";
 import CustomLinkInput from "./custom-link-input";
 import axios from "axios";
 import router from "next/router";
-import data from "@/linksList.json";
+import linkTypes from "@/link-types.json";
 
 export default function CustomizeLinks() {
   const [links, setLinks] = useState<Object[]>([]);
@@ -15,7 +15,7 @@ export default function CustomizeLinks() {
   const handleAddNewLink = () => {
     setLinks((prev) => [
       ...prev,
-      { platform: data[prev.length + 1].item, url: "" },
+      { platform: linkTypes[prev.length + 1].item, url: "" },
     ]);
   };
 

@@ -1,4 +1,4 @@
 export interface Link {
-  item: String;
-  icon: String;
+  item: string;
+  icon: string;
 }
