@@ -4,6 +4,7 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import * as jose from "jose";
 import jwt from "jsonwebtoken";
 
 connect();
@@ -38,11 +39,6 @@ export async function POST(request: NextRequest) {
       email: user.email,
     };
 
-    // Create a token with expiration of 1 day
-    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
-      expiresIn: "1d",
-    });
-
     // Create a JSON response indicating successful login
     const response = NextResponse.json({
       message: "Login successful",
@@ -50,7 +46,7 @@ export async function POST(request: NextRequest) {
     });
 
     // Set the token as an HTTP-only cookie
-    response.cookies.set("token", token, {
+    response.cookies.set("token", tokenData.id, {
       httpOnly: true,
     });
 
