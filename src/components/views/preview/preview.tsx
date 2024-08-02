@@ -2,34 +2,24 @@
 
 import useMediaStore from "@/state";
 import PreviewItem from "./preview-item";
-import { Link, userLink } from "@/interfaces";
-import User from "@/models/usermodel";
+import { userLink } from "@/interfaces";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "@/components/axios";
 
 const Preview: React.FC = () => {
   const { linkTypes, profile } = useMediaStore((state) => state);
   const [links, setLinks] = useState<userLink[]>([]);
 
   useEffect(() => {
-    const axiosInstance = axios.create({
-      baseURL: `http://localhost:3000`,
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
     async function Test() {
-      const response = await axiosInstance.get("/api/links/", {
+      const response = await axios.get("/api/links/", {
         params: {
           email: profile.email,
         },
       });
-      console.log(response);
       setLinks(response.data);
     }
-
-    Test();
+    if (profile?.email) Test();
   }, []);
 
   return (
