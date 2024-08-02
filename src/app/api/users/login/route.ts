@@ -1,11 +1,9 @@
 // app/api/users/login/route.ts
 
-import { connect } from "@/dbConfig/dbConfig";
-import User from "@/models/userModel";
+import { connect } from "@/lib/dbConfig";
+import User from "@/models/usermodel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import * as jose from "jose";
-import jwt from "jsonwebtoken";
 
 connect();
 // Calls the connect function to establish a connection to the database.
