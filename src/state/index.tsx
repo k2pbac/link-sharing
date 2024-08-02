@@ -1,18 +1,19 @@
 import { create } from "zustand";
-// import data from "../../data.json";
-// import { CardDetails } from "@/interfaces";
+import linkTypes from "../link-types.json";
+import { Link, userLink } from "@/interfaces";
 
-interface Filter {
-  search: string;
-  page: string;
-}
+import { Profile } from "@/interfaces";
 
 interface MediaState {
-  data: [];
+  profile: Profile;
+  linkTypes: {
+    [key: string]: Link;
+  };
 }
 
 const useMediaStore = create<MediaState>()((set) => ({
-  data: [],
+  linkTypes: linkTypes,
+  profile: { name: "test", email: "test@test.com" },
 }));
 
 export default useMediaStore;

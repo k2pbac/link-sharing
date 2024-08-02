@@ -1,0 +1,72 @@
+{
+  "Codepen": {
+    "item": "Codepen",
+    "icon": "/assets/images/icon-codepen.svg",
+    "color": "#1e1f26"
+  },
+  "Codewars": {
+    "item": "Codewars",
+    "icon": "/assets/images/icon-codewars.svg",
+    "color": "#8A1A50"
+  },
+  "Devto": {
+    "item": "Devto",
+    "icon": "/assets/images/icon-devto.svg",
+    "color": "#333333"
+  },
+  "Facebook": {
+    "item": "Facebook",
+    "icon": "/assets/images/icon-facebook.svg",
+    "color": "#2442AC"
+  },
+  "Freecodecamp": {
+    "item": "Freecodecamp",
+    "icon": "/assets/images/icon-freecodecamp.svg",
+    "color": "#302267"
+  },
+  "Frontend Mentor": {
+    "item": "Frontend Mentor",
+    "icon": "/assets/images/icon-frontend-mentor.svg",
+    "color": "#FFFFFF"
+  },
+  "Github": {
+    "item": "Github",
+    "icon": "/assets/images/icon-github.svg",
+    "color": "#1A1A1A"
+  },
+  "Gitlab": {
+    "item": "Gitlab",
+    "icon": "/assets/images/icon-gitlab.svg",
+    "color": "#EB4925"
+  },
+  "Hashnode": {
+    "item": "Hashnode",
+    "icon": "/assets/images/icon-hashnode.svg",
+    "color": "#0330D1"
+  },
+  "LinkedIn": {
+    "item": "LinkedIn",
+    "icon": "/assets/images/icon-linkedin.svg",
+    "color": "#2D68FF"
+  },
+  "Stack Overflow": {
+    "item": "Stack Overflow",
+    "icon": "/assets/images/icon-stack-overflow.svg",
+    "color": "#EC7100"
+  },
+  "Twitch": {
+    "item": "Twitch",
+    "icon": "/assets/images/icon-twitch.svg",
+    "color": "#EE3FC8"
+  },
+  "Twitter": {
+    "item": "Twitter",
+    "icon": "/assets/images/icon-twitter.svg",
+    "color": "#43B7E9"
+  },
+  "Youtube": {
+    "item": "Youtube",
+    "icon": "/assets/images/icon-youtube.svg",
+    "color": "#EE3939"
+  }
+}
